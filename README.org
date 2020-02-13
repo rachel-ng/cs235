@@ -1,0 +1,13 @@
+* Sping 2020 - 235 - Homework / Classwork
+
+* Last name:
+
+* First name:
+
+
+* GitHub username:
+
+* General instructions:
+- Fill in your name and GitHub username on top.
+- For each assignment (classwork or homework) make a folder with the assignment name 
+- place all necessary files in that folder.
