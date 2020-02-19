@@ -1,11 +1,11 @@
 * Sping 2020 - 235 - Homework / Classwork
 
-* Last name:
+* Last name: Ng 
 
-* First name:
+* First name: Rachel 
 
 
-* GitHub username:
+* GitHub username: rachel-ng
 
 * General instructions:
 - Fill in your name and GitHub username on top.
