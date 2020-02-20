@@ -38,5 +38,8 @@ TEST_CASE("[]"){
         l->pushback(std::to_string(i));
         CHECK((*l)[i] == std::to_string(i));
     }
+    (*l)[5] = "stream black swan";
+    CHECK((*l)[5] == "stream black swan");
+
     std::cout << l->getDebugString() << "\n";
 } 
