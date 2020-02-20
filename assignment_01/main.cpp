@@ -21,7 +21,7 @@ int main()
    l->insert("five");
    l->insert("six");
    l->insert("seven");
-
+   l->pushback("last");
    std::cout << l->length() << " items in the list.\n";
    std::cout << l->getDebugString() << "\n";
    

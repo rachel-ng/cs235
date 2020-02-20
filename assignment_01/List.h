@@ -13,6 +13,7 @@ public:
     ~List();
     void insert(std::string data);
     void remove(int index);
+    void pushback(std::string s);
     std::string &operator[] (int index);
     std::string getDebugString();
     int length();

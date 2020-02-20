@@ -38,6 +38,22 @@ void List::remove(int index){
     len--;
 }
 
+void List::pushback(std::string s) {
+    if (len < 1) {
+        insert(s);
+        return;
+    }
+    Node *t;
+    Node *n = new Node(s);
+    t = head;
+    while(t->getNext() != nullptr) { 
+        t = t->getNext();
+    }
+    t->setNext(n);
+    len++;
+}
+
+
 std::string &List::operator[] (int index){
     int i = 0;
     Node *t;
