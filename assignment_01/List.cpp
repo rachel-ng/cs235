@@ -26,6 +26,9 @@ void List::insert(std::string data){
 }
 
 void List::remove(int index){
+    if (index > len || index < 0) {
+        return;
+    }
     int i = 0;
     Node *prev;
     prev = head;

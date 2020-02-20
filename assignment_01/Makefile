@@ -13,7 +13,7 @@ $(OBJS).o: List.cpp List.h Node.cpp Node.h
 	g++ -c List.cpp Node.cpp
 
 tests.o: tests.cpp List.h Node.h
-	g++ -c test.cpp
+	g++ -c tests.cpp
 
 clean:
 	rm *.o main tests 
