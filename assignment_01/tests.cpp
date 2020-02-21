@@ -10,6 +10,7 @@ TEST_CASE("insert"){
         CHECK((*l)[0] == std::to_string(i));
     }
     std::cout << l->getDebugString() << "\n";
+    delete l; 
 } 
 
 TEST_CASE("pushback"){
@@ -19,6 +20,7 @@ TEST_CASE("pushback"){
         CHECK((*l)[i] == std::to_string(i));
     }
     std::cout << l->getDebugString() << "\n";
+    delete l; 
 } 
 
 TEST_CASE("remove"){
@@ -30,6 +32,7 @@ TEST_CASE("remove"){
         CHECK(l->length() == 1);
     }
     std::cout << l->getDebugString() << "\n";
+    delete l; 
 } 
 
 TEST_CASE("[]"){
@@ -42,4 +45,5 @@ TEST_CASE("[]"){
     CHECK((*l)[5] == "stream black swan");
 
     std::cout << l->getDebugString() << "\n";
+    delete l; 
 } 
