@@ -10,6 +10,7 @@ public:
     Node(std::string,Node* prev);
     Node(std::string,Node* next);
     Node(std::string,Node* prev,Node* next);
+    
     std::string data;
 
     void setData(std::string data);

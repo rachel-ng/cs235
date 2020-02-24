@@ -6,6 +6,7 @@
 class List{
 private:
     Node *head;
+    Node *current;
     Node *tail;
     int len;
 public:
