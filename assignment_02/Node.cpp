@@ -12,18 +12,6 @@ Node::Node(std::string data){
   this->next = nullptr;
 }
 
-Node::Node(std::string data, Node *prev){
-  this->data = data;
-  this->prev = prev;
-  this->next = nullptr;
-}
-
-Node::Node(std::string data, Node *next){
-  this->data = data;
-  this->prev = nullptr;
-  this->next = next;
-}
-
 Node::Node(std::string data, Node *prev, Node *next){
   this->data = data;
   this->prev = prev;

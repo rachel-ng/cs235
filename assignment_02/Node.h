@@ -7,8 +7,6 @@ private:
 public:
     Node();
     Node(std::string data);
-    Node(std::string,Node* prev);
-    Node(std::string,Node* next);
     Node(std::string,Node* prev,Node* next);
     
     std::string data;

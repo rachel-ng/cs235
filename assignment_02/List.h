@@ -13,8 +13,8 @@ public:
     List();
     ~List();
     void insert(std::string data);
-    void remove(int index);
     void pushback(std::string s);
+    void remove(int index);
     std::string &operator[] (int index);
     std::string getDebugString();
     int length();

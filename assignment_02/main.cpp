@@ -4,6 +4,7 @@
 int main()
 {
   List *l = new List();
+   std::cout << l->getDebugString() << "\n";
 
   l->insert("one");
   l->insert("two");
