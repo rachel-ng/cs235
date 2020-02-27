@@ -148,43 +148,6 @@ void List::remove(int index){
     curr = index - 1;
 
     len--;
-
-   /* 
-    int i;
-    Node *prev;
-
-    
-   
-    if (index <= len / 2) { 
-        // if in first half of linked list 
-        
-        i = 0;
-        prev = head;
-        while(prev != nullptr && i < index - 1) { 
-            prev = prev->getNext();
-            i++; 
-        }
-    }
-    else { 
-        // if in second half of linked list
-        
-        i = len - 1;
-        prev = tail;
-        while(prev != nullptr && i > index - 1) { 
-            prev = prev->getPrev();
-            i--; 
-        }
-    }
-    
-
-    Node *next = (prev->getNext())->getNext();
-    next->setPrev(prev);
-    delete prev->getNext();
-    prev->setNext(next);
-    current = prev;
-    curr = index - 1;
-    len--;
-    */
 }
 
 std::string &List::operator[] (int index){
@@ -212,32 +175,6 @@ std::string &List::operator[] (int index){
     int i = h > b ? (b > c ? curr : len - 1) : 0;
     int dec = index > i ? 1 : -1;
     Node *t = h > b ? (b > c ? current : tail) : head;
-
-    //std::cout << (h > b ? (b > c ? "current" : "tail") : "head") << std::endl;
-
-    //std::cout << "\n" << index << ": " << index - 0 << "\t" << abs(curr - index) << "\t" << len - 1 - index << std::endl;
-    /*
-    if (index <= len / 2) { 
-        // if in first half of linked list
-        
-        i = 0;
-        t = head;
-        while(t != nullptr && i < index) { 
-            t = t->getNext();
-            i++; 
-        }
-    }
-    else { 
-        // if in second half of linked list 
-        
-        i = len - 1;
-        t = tail;
-        while(t != nullptr && i > index) { 
-            t = t->getPrev();
-            i--; 
-        }
-    }
-    */
 
     if (dec == 1) { 
         while(t != nullptr && i < index) { 
