@@ -9,6 +9,8 @@ private:
     Node *current;
     Node *tail;
     int len;
+    int curr = -1;
+
 public:
     List();
     ~List();

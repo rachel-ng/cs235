@@ -34,8 +34,11 @@ int main()
    std::cout << l->length() << " items in the list.\n";
    std::cout << l->getDebugString() << "\n";
 
-   (*l)[-100] = "rip";
-
+   try {
+    (*l)[-100] = "rip";
+    } catch (const std::out_of_range& err) {
+        std::cout << "tried (*l)[-100]: out of range!!!" << std::endl;
+    }
    delete l;
    std::cout << "The end\n";
    return 0;

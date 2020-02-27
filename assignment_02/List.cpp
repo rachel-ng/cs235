@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <cmath>
+#include <stdexcept>
 #include "List.h"
 #include "Node.h"
 
@@ -41,6 +43,7 @@ void List::insert(std::string data){
     }
    
     current = t;
+    curr = 0;
 
     len++;
 }
@@ -59,6 +62,7 @@ void List::pushback(std::string s) {
     tail = n;
     
     current = n;
+    curr = len;
 
     len++;
 }
@@ -74,12 +78,16 @@ void List::remove(int index){
             delete tail;
             head = nullptr;
             tail = nullptr;
+            current = nullptr;
+            curr = -1;
         }
         else {
             Node *next = head->getNext();
             next->setPrev(nullptr);
             delete head;
             head = next;
+            current = head;
+            curr = 0;
         }
         len--;
         return;
@@ -90,13 +98,63 @@ void List::remove(int index){
         prev->setNext(nullptr);
         delete tail;
         tail = prev;
+        current = tail;
+        curr = index - 1;
         len--;
         return;
     }
+
+    if (index == curr) {
+        Node *prev = current->getPrev();
+        Node *next = current->getNext();
+        next->setPrev(prev);
+        delete current;
+        prev->setNext(next);
+        current = prev;
+        curr = index - 1;
+        len--;
+        return;
+    }
+
+    int h = index;
+    int c = abs(curr - index);
+    int b = len - 1 - index;
+    int i = h > b ? (b > c ? curr : len - 1) : 0;
+    int dec = index > i ? 1 : -1;
+    Node *prev = h > b ? (b > c ? current : tail) : head;
+
+    std::cout << "remove " << index << " " << (h > b ? (b > c ? "current" : "tail") : "head") << std::endl;
+   
+    if (dec == 1) { 
+        while(prev != nullptr && i < index) { 
+            prev = prev->getNext();
+            i+=dec; 
+        }
+    }
     
+    else { 
+        while(prev != nullptr && i > index) { 
+            prev = prev->getPrev();
+            i+=dec; 
+        }
+    }
+    
+    Node *next = (prev->getNext())->getNext();
+    next->setPrev(prev);
+    delete prev->getNext();
+    prev->setNext(next);
+    
+    current = prev;
+    curr = index - 1;
+
+    len--;
+
+   /* 
     int i;
     Node *prev;
 
+    
+   
     if (index <= len / 2) { 
         // if in first half of linked list 
         
@@ -117,25 +175,48 @@ void List::remove(int index){
             i--; 
         }
     }
+    
 
     Node *next = (prev->getNext())->getNext();
     next->setPrev(prev);
     delete prev->getNext();
     prev->setNext(next);
+    current = prev;
+    curr = index - 1;
     len--;
+    */
 }
 
 std::string &List::operator[] (int index){
+    if (index > len - 1 || index < 0) {
+        throw std::out_of_range("Index out of range");
+    }
+    
     if (index == 0) {
+        current = head;
+        curr = index;
         return head->data;
     }
     if (index == len - 1) {
+        current = tail;
+        curr = index;
         return tail->data;
     }
+    if (index == curr) {
+        return current->data;
+    }
     
-    int i;
-    Node *t;
+    int h = index;
+    int c = abs(curr - index);
+    int b = len - 1 - index;
+    int i = h > b ? (b > c ? curr : len - 1) : 0;
+    int dec = index > i ? 1 : -1;
+    Node *t = h > b ? (b > c ? current : tail) : head;
 
+    //std::cout << (h > b ? (b > c ? "current" : "tail") : "head") << std::endl;
+
+    //std::cout << "\n" << index << ": " << index - 0 << "\t" << abs(curr - index) << "\t" << len - 1 - index << std::endl;
+    /*
     if (index <= len / 2) { 
         // if in first half of linked list
         
@@ -156,7 +237,24 @@ std::string &List::operator[] (int index){
             i--; 
         }
     }
+    */
+
+    if (dec == 1) { 
+        while(t != nullptr && i < index) { 
+            t = t->getNext();
+            i+=dec; 
+        }
+    }
     
+    else { 
+        while(t != nullptr && i > index) { 
+            t = t->getPrev();
+            i+=dec; 
+        }
+    }
+
+    current = t;
+    curr = index;
     return t->data; 
 }
 
