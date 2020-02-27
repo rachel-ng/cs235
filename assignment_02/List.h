@@ -17,5 +17,6 @@ public:
     void remove(int index);
     std::string &operator[] (int index);
     std::string getDebugString();
+    std::string getDebugStringBack();
     int length();
 };
