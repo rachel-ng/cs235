@@ -5,12 +5,12 @@ private:
     Node *next;
 public:
     Node();
-    Node(std::string data);
-    Node(std::string,Node* next);
-    std::string data;
+    Node(int data);
+    Node(int,Node* next);
+    int data;
 
-    void setData(std::string data);
+    void setData(int data);
     void setNext(Node *next);
-    std::string getData();
+    int getData();
     Node *getNext();
 };

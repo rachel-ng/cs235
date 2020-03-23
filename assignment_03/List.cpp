@@ -17,7 +17,7 @@ List::~List(){
         delete t;
     }
 }
-void List::insert(std::string data){
+void List::insert(int data){
     Node *t = new Node(data);
     t->setNext(head);
     head = t;
@@ -31,6 +31,14 @@ void List::remove(int index){
     int i = 0;
     Node *prev;
     prev = head;
+    
+    if (index == 0) {
+        head = head->getNext();
+        delete prev;
+        len--;
+        return;
+    }
+
     while(prev != nullptr && i < index - 1) { 
         prev = prev->getNext();
         i++; 
@@ -40,7 +48,7 @@ void List::remove(int index){
     len--;
 }
 
-void List::pushback(std::string s) {
+void List::pushback(int s) {
     if (len < 1) {
         insert(s);
         return;
@@ -56,7 +64,7 @@ void List::pushback(std::string s) {
 }
 
 
-std::string &List::operator[] (int index){
+int &List::operator[] (int index){
     int i = 0;
     Node *t;
     t = head;
@@ -72,7 +80,7 @@ std::string List::getDebugString(){
     t = head;
     std::string result="";
     while (t != nullptr){
-        result = result + t->getData() + "-->";
+        result = result + std::to_string(t->getData()) + "-->";
         t = t->getNext();
     }
     result = result + "null";

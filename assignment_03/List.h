@@ -11,10 +11,10 @@ private:
 public:
     List();
     ~List();
-    void insert(std::string data);
+    void insert(int data);
     void remove(int index);
-    void pushback(std::string s);
-    std::string &operator[] (int index);
+    void pushback(int s);
+    int &operator[] (int index);
     std::string getDebugString();
     int length();
 };
