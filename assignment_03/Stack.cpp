@@ -1,4 +1,3 @@
-#include <iostream>
 #include <stdexcept>
 #include <vector>
 #include "Stack.h"
@@ -6,13 +5,10 @@
 
 Stack::Stack(){
     l = new List();
-    std::cout << "setup" << std::endl;
 }
 
 void Stack::push(int data){
-    std::cout << "push" << std::endl;
     l->insert(data);
-    std::cout << l->getDebugString() << std::endl;
 }
 
 int Stack::pop () {
@@ -20,7 +16,6 @@ int Stack::pop () {
         throw std::out_of_range("EMPTY STACK: Can not pop");
     }
     int data = (*l)[0];
-    std::cout << data << std::endl;
     l->remove(0);
     return data;
 }
@@ -62,5 +57,9 @@ void Stack::swap() {
     
     this->push(uno);
     this->push(dos);
+}
+
+std::string Stack::peek() {
+    return l->getDebugString();
 }
 

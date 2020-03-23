@@ -15,4 +15,5 @@ public:
     std::vector<int> get_vector();
     std::vector<int> initialize(std::vector<int> a);
     void swap();
+    std::string peek();
 };
