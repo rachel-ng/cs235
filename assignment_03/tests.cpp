@@ -39,8 +39,10 @@ TEST_CASE("pop") {
     for (int i = 10; i > 0; i--) {
         CHECK(s.pop() == i);
     }
-    
+
+
     bool errCaught = false;
+    
     try {
         s.pop();
     }
@@ -86,11 +88,12 @@ TEST_CASE("swap") {
     s.swap();
     CHECK(s.pop() == 4);
     CHECK(s.pop() == 5);
-    
+
+
     while (!s.is_empty()) {
         s.pop();
     }
-    
+
     bool errCaught = false;
     try {
         s.swap();
