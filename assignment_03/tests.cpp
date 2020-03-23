@@ -41,7 +41,6 @@ TEST_CASE("pop") {
     }
     
     bool errCaught = false;
-    
     try {
         s.pop();
     }
