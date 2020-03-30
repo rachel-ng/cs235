@@ -31,10 +31,16 @@ TEST_CASE("enqueue + [] operator") {
     CHECK(errCaught);
    
     q.enqueue(10);
+    
+    std::cout << q.getFullString() << std::endl;
+    std::cout << q.getDebugString() << "\n" << std::endl;
+    
     CHECK(q[0] == 10);
     CHECK(10 == q.dequeue());
+    
+    std::cout << q.getDebugString() << "\n" << std::endl;
 
-    for (int i = 0; i < 11; i++) {
+    for (int i = 0; i < 13; i++) {
         q.enqueue(i);
         CHECK(q.length() == i + 1);
         CHECK(q[i] == i);
@@ -50,7 +56,8 @@ TEST_CASE("enqueue + [] operator") {
     }
     CHECK(errCaught);
     
-    std::cout << q.getDebugString() << "\t" << q.length() << "\n" << std::endl;
+    std::cout << q.getFullString() << std::endl;
+    std::cout << q.getDebugString() << "\n" << std::endl;
 }
 
 TEST_CASE("dequeue") {
@@ -59,14 +66,13 @@ TEST_CASE("dequeue") {
         CHECK(q.dequeue() == i);
     }
 
-    std::cout << q.getDebugString() << "\t" << q.length() << "\n" << std::endl;
+    std::cout << q.getFullString() << std::endl;
+    std::cout << q.getDebugString() << "\n" << std::endl;
 }
 
 TEST_CASE("is_empty") {
-    for (int i = 6; i < 11; i++) {
+    for (int i = 6; i < 13; i++) {
         CHECK(q[0] == i);
-        std::cout << q.getDebugString() << std::endl;
-        std::cout << q.getFullString() << std::endl;
         CHECK(q.dequeue() == i);
     }
 
@@ -81,4 +87,15 @@ TEST_CASE("is_empty") {
         errCaught = true;
     }
     CHECK(errCaught);
+   
+
+    // CHECK ARRAY RESIZE
+    std::cout << q.getFullString() << std::endl;
+    std::cout << q.getDebugString() << "\n"  << std::endl;
+    
+    for (int i = 11; i < 35; i++) {
+        q.enqueue(i);
+    }
+    std::cout << q.getFullString() << std::endl;
+    std::cout << q.getDebugString() << std::endl;
 }

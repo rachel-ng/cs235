@@ -73,7 +73,7 @@ std::string Queue::getFullString(){
     for (int i = 0; i < capacity; i++){
         result = result + std::to_string(list[i]) + "-->";
     }
-    result = result + "null";
+    result = result + "null\t" + std::to_string(capacity);
     return result;
 }
 
