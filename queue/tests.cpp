@@ -201,6 +201,13 @@ TEST_CASE("QueueLL: enqueue + [] operator") {
     }
     CHECK(errCaught);
 
+    ql.enqueue(10);
+    std::cout << ql.getDebugString() << "\t" << ql.length() << "\n" << std::endl;
+    CHECK(ql[0] == 10);
+    CHECK(10 == ql.dequeue());
+    CHECK(ql.is_empty());
+    std::cout << ql.getDebugString() << "\t" << ql.length() << "\n" << std::endl;
+
 
     // ENQUEUE CASES
     for (int i = 0; i < 11; i++) {
