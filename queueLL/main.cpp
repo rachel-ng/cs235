@@ -1,10 +1,10 @@
 #include <iostream>
 #include <stdexcept>
 #include "Node.h"
-#include "Queue.h"
+#include "QueueLL.h"
 
 int main() {
-    Queue q = Queue();
+    QueueLL q = QueueLL();
 
     for (int i = 0; i < 11; i++) {
         q.enqueue(i);

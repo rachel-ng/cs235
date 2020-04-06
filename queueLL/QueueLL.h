@@ -3,14 +3,14 @@
 #include <string>
 #include "Node.h"
 
-class Queue{
+class QueueLL{
 private:
     Node *head;
     Node *tail;
     int len;
 public: 
-    Queue();
-    ~Queue();
+    QueueLL();
+    ~QueueLL();
     void enqueue(int data);
     int dequeue();
     bool is_empty();

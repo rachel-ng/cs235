@@ -1,13 +1,13 @@
 #include <iostream>
-#include "Queue.h"
+#include "QueueLL.h"
 
-Queue::Queue() {
+QueueLL::QueueLL() {
     head = nullptr;
     tail = nullptr;
     len = 0;
 }
 
-Queue::~Queue(){
+QueueLL::~QueueLL(){
     std::cout << "In the destructor\n";
     Node *t;
     while (head != nullptr){
@@ -17,7 +17,7 @@ Queue::~Queue(){
     }
 }
 
-void Queue::enqueue(int data) {
+void QueueLL::enqueue(int data) {
     Node *t = new Node(data);
     if (len == 0) {
         head = t;
@@ -29,7 +29,7 @@ void Queue::enqueue(int data) {
     len++;
 }
 
-int Queue::dequeue() {
+int QueueLL::dequeue() {
     if (len == 0) {
         throw std::out_of_range("EMPTY QUEUE: Nothing to dequeue");
     }
@@ -42,11 +42,11 @@ int Queue::dequeue() {
     return n;
 }
 
-bool Queue::is_empty() {
+bool QueueLL::is_empty() {
     return len == 0;
 }
 
-int &Queue::operator[] (int index){
+int &QueueLL::operator[] (int index){
     if (len == 0) {
         throw std::out_of_range("EMPTY QUEUE: Can not access element");
     }
@@ -68,7 +68,7 @@ int &Queue::operator[] (int index){
     return t->data; 
 }
 
-std::string Queue::getDebugString(){
+std::string QueueLL::getDebugString(){
     Node *t;
     t = head;
     std::string result="";
@@ -80,6 +80,6 @@ std::string Queue::getDebugString(){
     return result;
 }
 
-int Queue::length() {
+int QueueLL::length() {
     return len;
 }

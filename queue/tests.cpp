@@ -5,15 +5,15 @@
 #include "doctest.h"
 #include "QueueA.h"
 
-QueueA q = QueueA();
+QueueA qa = QueueA();
 
 TEST_CASE("enqueue + [] operator") {
-    CHECK(q.is_empty());
+    CHECK(qa.is_empty());
     
     // CHECK ERROR CATCHING: DEQUEUE EMPTY QUEUE
     bool errCaught = false;
     try {
-        q.dequeue();
+        qa.dequeue();
     } 
     catch (const std::out_of_range& err) {
         errCaught = true;
@@ -23,65 +23,65 @@ TEST_CASE("enqueue + [] operator") {
     // CHECK ERROR CATCHING: ACCESS EMPTY QUEUE
     errCaught = false;
     try {
-        q[1000];
+        qa[1000];
     } 
     catch (const std::out_of_range& err) {
         errCaught = true;
     }
     CHECK(errCaught);
    
-    q.enqueue(10);
+    qa.enqueue(10);
     
-    std::cout << q.getFullString() << std::endl;
-    std::cout << q.getDebugString() << "\n" << std::endl;
+    std::cout << qa.getFullString() << std::endl;
+    std::cout << qa.getDebugString() << "\n" << std::endl;
     
-    CHECK(q[0] == 10);
-    CHECK(10 == q.dequeue());
+    CHECK(qa[0] == 10);
+    CHECK(10 == qa.dequeue());
     
-    std::cout << q.getDebugString() << "\n" << std::endl;
+    std::cout << qa.getDebugString() << "\n" << std::endl;
 
     for (int i = 0; i < 13; i++) {
-        q.enqueue(i);
-        CHECK(q.length() == i + 1);
-        CHECK(q[i] == i);
+        qa.enqueue(i);
+        CHECK(qa.length() == i + 1);
+        CHECK(qa[i] == i);
     }
 
     // CHECK ERROR CATCHING: ACCESS OUT OF BOUNDS 
     errCaught = false;
     try {
-        q[1000];
+        qa[1000];
     } 
     catch (const std::out_of_range& err) {
         errCaught = true;
     }
     CHECK(errCaught);
     
-    std::cout << q.getFullString() << std::endl;
-    std::cout << q.getDebugString() << "\n" << std::endl;
+    std::cout << qa.getFullString() << std::endl;
+    std::cout << qa.getDebugString() << "\n" << std::endl;
 }
 
 TEST_CASE("dequeue") {
     for (int i = 0; i < 6; i++) {
-        CHECK(q[0] == i);
-        CHECK(q.dequeue() == i);
+        CHECK(qa[0] == i);
+        CHECK(qa.dequeue() == i);
     }
 
-    std::cout << q.getFullString() << std::endl;
-    std::cout << q.getDebugString() << "\n" << std::endl;
+    std::cout << qa.getFullString() << std::endl;
+    std::cout << qa.getDebugString() << "\n" << std::endl;
 }
 
 TEST_CASE("is_empty") {
     for (int i = 6; i < 13; i++) {
-        CHECK(q[0] == i);
-        CHECK(q.dequeue() == i);
+        CHECK(qa[0] == i);
+        CHECK(qa.dequeue() == i);
     }
 
-    CHECK(q.is_empty());
+    CHECK(qa.is_empty());
     
     // CHECK ERROR CATCHING: DEQUEUE EMPTY QUEUE
     bool errCaught = false;
     try {
-        q.dequeue();
+        qa.dequeue();
     } 
     catch (const std::out_of_range& err) {
         errCaught = true;
@@ -90,12 +90,12 @@ TEST_CASE("is_empty") {
    
 
     // CHECK ARRAY RESIZE
-    std::cout << q.getFullString() << std::endl;
-    std::cout << q.getDebugString() << "\n"  << std::endl;
+    std::cout << qa.getFullString() << std::endl;
+    std::cout << qa.getDebugString() << "\n"  << std::endl;
     
     for (int i = 11; i < 35; i++) {
-        q.enqueue(i);
+        qa.enqueue(i);
     }
-    std::cout << q.getFullString() << std::endl;
-    std::cout << q.getDebugString() << std::endl;
+    std::cout << qa.getFullString() << std::endl;
+    std::cout << qa.getDebugString() << std::endl;
 }
