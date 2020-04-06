@@ -3,17 +3,17 @@
 #include <stdexcept>
 #include <string>
 #include "doctest.h"
-#include "Queue.h"
+#include "QueueLL.h"
 
-Queue q = Queue();
+QueueLL ql = QueueLL();
 
 TEST_CASE("enqueue + [] operator") {
-    CHECK(q.is_empty());
+    CHECK(ql.is_empty());
     
     // CHECK ERROR CATCHING: DEQUEUE EMPTY QUEUE
     bool errCaught = false;
     try {
-        q.dequeue();
+        ql.dequeue();
     } 
     catch (const std::out_of_range& err) {
         errCaught = true;
@@ -23,7 +23,7 @@ TEST_CASE("enqueue + [] operator") {
     // CHECK ERROR CATCHING: ACCESS EMPTY QUEUE
     errCaught = false;
     try {
-        q[1000];
+        ql[1000];
     } 
     catch (const std::out_of_range& err) {
         errCaught = true;
@@ -31,45 +31,45 @@ TEST_CASE("enqueue + [] operator") {
     CHECK(errCaught);
     
     for (int i = 0; i < 11; i++) {
-        q.enqueue(i);
-        CHECK(q.length() == i + 1);
-        CHECK(q[i] == i);
+        ql.enqueue(i);
+        CHECK(ql.length() == i + 1);
+        CHECK(ql[i] == i);
     }
 
     // CHECK ERROR CATCHING: ACCESS OUT OF BOUNDS 
     errCaught = false;
     try {
-        q[1000];
+        ql[1000];
     } 
     catch (const std::out_of_range& err) {
         errCaught = true;
     }
     CHECK(errCaught);
     
-    std::cout << q.getDebugString() << "\t" << q.length() << "\n" << std::endl;
+    std::cout << ql.getDebugString() << "\t" << ql.length() << "\n" << std::endl;
 }
 
 TEST_CASE("dequeue") {
     for (int i = 0; i < 6; i++) {
-        CHECK(q[0] == i);
-        CHECK(q.dequeue() == i);
+        CHECK(ql[0] == i);
+        CHECK(ql.dequeue() == i);
     }
 
-    std::cout << q.getDebugString() << "\t" << q.length() << "\n" << std::endl;
+    std::cout << ql.getDebugString() << "\t" << ql.length() << "\n" << std::endl;
 }
 
 TEST_CASE("is_empty") {
     for (int i = 6; i < 11; i++) {
-        CHECK(q[0] == i);
-        CHECK(q.dequeue() == i);
+        CHECK(ql[0] == i);
+        CHECK(ql.dequeue() == i);
     }
 
-    CHECK(q.is_empty());
+    CHECK(ql.is_empty());
     
     // CHECK ERROR CATCHING: DEQUEUE EMPTY QUEUE
     bool errCaught = false;
     try {
-        q.dequeue();
+        ql.dequeue();
     } 
     catch (const std::out_of_range& err) {
         errCaught = true;
