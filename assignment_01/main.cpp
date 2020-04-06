@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdexcept>
 #include "List.h"
 int main()
 {
@@ -22,6 +23,8 @@ int main()
    l->insert("six");
    l->insert("seven");
    l->pushback("last");
+   std::cout << l->getDebugString() << "\n";
+   l->pushback("stan bts");
    std::cout << l->length() << " items in the list.\n";
    std::cout << l->getDebugString() << "\n";
    
@@ -30,7 +33,7 @@ int main()
    std::cout << l->length() << " items in the list.\n";
    std::cout << l->getDebugString() << "\n";
 
-
+   (*l)[-100] = "rip";
 
    delete l;
    std::cout << "The end\n";

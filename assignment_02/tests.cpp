@@ -37,6 +37,18 @@ TEST_CASE("remove"){
     List *l = new List();
     
     l->pushback("on mv comes out tomorrow!!");
+    std::cout << l->getDebugString() << std::endl;
+    std::cout << "removing 0: " << (*l)[0] << std::endl;
+    l->remove(0);
+    std::cout << l->getDebugString() << std::endl;
+
+    l->pushback("on mv comes out tomorrow!!");
+    l->pushback("on mv comes out tomorrow!!");
+    std::cout << "\n" <<  l->getDebugString() << std::endl;
+    std::cout << "removing 0: " << (*l)[0] << std::endl;
+    l->remove(0);
+    std::cout <<  l->getDebugString() << "\n" << std::endl;
+    
     l->pushback("we stan bts");
     l->pushback("mots 7 comes out tomorrow!!");
     l->pushback("annyeonghaseyo jeoneun bangtan sonyeondan hwanggeum maknae jeon jungkook imnida");

@@ -25,12 +25,18 @@ TEST_CASE("pushback"){
 
 TEST_CASE("remove"){
     List *l = new List();
+    
     l->pushback("mots 7 comes out tomorrow!!");
+    CHECK(l->length() == 1);
+    l->remove(0);
+    l->pushback("mots 7 comes out tomorrow!!");
+    
     for (int i = 0; i < 9; i++) {
         l->insert(std::to_string(i));
         l->remove(0);
         CHECK(l->length() == 1);
     }
+
     std::cout << l->getDebugString() << "\n";
     delete l; 
 } 

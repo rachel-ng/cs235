@@ -75,17 +75,16 @@ void List::remove(int index){
     if (index == 0) { // if removing head 
         if (len == 1) {  // if only node
             delete head;
-            delete tail;
             head = nullptr;
             tail = nullptr;
             current = nullptr;
             curr = -1;
         }
         else {
-            Node *next = head->getNext();
-            next->setPrev(nullptr);
-            delete head;
-            head = next;
+            Node *prev = head;
+            head = head->getNext();
+            head->setPrev(nullptr);
+            delete prev;
             current = head;
             curr = 0;
         }
@@ -123,8 +122,6 @@ void List::remove(int index){
     int dec = index > i ? 1 : -1;
     Node *prev = h > b ? (b > c ? current : tail) : head;
 
-    std::cout << "remove " << index << " " << (h > b ? (b > c ? "current" : "tail") : "head") << std::endl;
-   
     if (dec == 1) { 
         while(prev != nullptr && i < index) { 
             prev = prev->getNext();
