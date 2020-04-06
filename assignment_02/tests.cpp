@@ -42,11 +42,12 @@ TEST_CASE("remove"){
     l->remove(0);
     std::cout << l->getDebugString() << std::endl;
 
-    l->pushback("on mv comes out tomorrow!!");
-    l->pushback("on mv comes out tomorrow!!");
+    l->pushback("on mv");
+    l->pushback("comes out");
+    l->pushback("tomorrow!!");
     std::cout << "\n" <<  l->getDebugString() << std::endl;
-    std::cout << "removing 0: " << (*l)[0] << std::endl;
-    l->remove(0);
+    std::cout << "removing 1: " << (*l)[1] << std::endl;
+    l->remove(1);
     std::cout <<  l->getDebugString() << "\n" << std::endl;
     
     l->pushback("we stan bts");
@@ -56,6 +57,10 @@ TEST_CASE("remove"){
     l->pushback("we stan bts");
     l->pushback("delete meh");
     l->pushback("we stan bts");
+    
+    std::cout << l->getDebugString() << "\n" << std::endl;
+    std::cout << "removing 1: " << (*l)[1] << std::endl;
+    l->remove(1);
     
     std::cout << l->getDebugString() << "\n" << std::endl;
     std::cout << "removing 2: " << (*l)[2] << std::endl;

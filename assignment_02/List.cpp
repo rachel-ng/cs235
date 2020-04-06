@@ -67,7 +67,7 @@ void List::pushback(std::string s) {
     len++;
 }
 
-void List::remove(int index){
+void List::remove(int index) {
     if (index > len - 1 || index < 0) {
         return;
     }
@@ -91,7 +91,7 @@ void List::remove(int index){
         len--;
         return;
     }
-    
+
     if (index == len - 1) { // if removing tail 
         Node *prev = tail->getPrev();
         prev->setNext(nullptr);
@@ -102,7 +102,19 @@ void List::remove(int index){
         len--;
         return;
     }
-
+    
+    if (index == 1) {
+        Node *del = head->getNext();
+        Node *next = del->getNext();
+        next->setPrev(head); 
+        head->setNext(next);
+        delete del;
+        current = head;
+        curr = 0;
+        len--;
+        return;
+    }
+    
     if (index == curr) {
         Node *prev = current->getPrev();
         Node *next = current->getNext();
@@ -121,14 +133,13 @@ void List::remove(int index){
     int i = h > b ? (b > c ? curr : len - 1) : 0;
     int dec = index > i ? 1 : -1;
     Node *prev = h > b ? (b > c ? current : tail) : head;
-
+    
     if (dec == 1) { 
         while(prev != nullptr && i < index) { 
             prev = prev->getNext();
             i+=dec; 
         }
     }
-    
     else { 
         while(prev != nullptr && i > index) { 
             prev = prev->getPrev();
@@ -136,6 +147,7 @@ void List::remove(int index){
         }
     }
     
+
     Node *next = (prev->getNext())->getNext();
     next->setPrev(prev);
     delete prev->getNext();
