@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <stdexcept>
 #include "List.h"
 #include "Node.h"
 
@@ -25,12 +26,11 @@ void List::insert(std::string data){
 }
 
 void List::remove(int index){
-    if (index > len || index < 0) {
+    if (index >= len || index < 0) {
         return;
     }
-    int i = 0;
-    Node *prev;
-    prev = head;
+    
+    Node *prev = head;
     
     if (index == 0) {
         head = head->getNext();
@@ -38,12 +38,17 @@ void List::remove(int index){
         len--;
         return;
     }
-
+    
+    int i = 0;
     while(prev != nullptr && i < index - 1) { 
         prev = prev->getNext();
         i++; 
     }
-    prev->setNext((prev->getNext())->getNext());
+
+    Node *next = prev->getNext();
+    prev->setNext(next->getNext());
+
+    delete next;
 
     len--;
 }
@@ -65,6 +70,10 @@ void List::pushback(std::string s) {
 
 
 std::string &List::operator[] (int index){
+    if (index > len - 1 || index < 0) {
+        throw std::out_of_range("Index out of range");
+    }
+    
     int i = 0;
     Node *t;
     t = head;
