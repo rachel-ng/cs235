@@ -7,7 +7,7 @@
 
 QueueA qa = QueueA();
 
-TEST_CASE("enqueue + [] operator") {
+TEST_CASE("QueueA: enqueue + [] operator") {
     CHECK(qa.is_empty());
     
     // CHECK ERROR CATCHING: DEQUEUE EMPTY QUEUE
