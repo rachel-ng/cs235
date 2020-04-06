@@ -3,9 +3,9 @@
 #include <stdexcept>
 #include <string>
 #include "doctest.h"
-#include "Queue.h"
+#include "QueueA.h"
 
-Queue q = Queue();
+QueueA q = QueueA();
 
 TEST_CASE("enqueue + [] operator") {
     CHECK(q.is_empty());

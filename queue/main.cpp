@@ -1,9 +1,11 @@
 #include <iostream>
 #include <stdexcept>
-#include "Queue.h"
+#include "QueueA.h"
+#include "QueueLL.h"
+#include "Node.h"
 
 int main() {
-    Queue q = Queue();
+    QueueA q = QueueA();
 
     std::cout << q.getFullString() << std::endl;
     

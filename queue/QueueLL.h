@@ -1,19 +1,20 @@
 #pragma once
 #include <stdexcept>
+#include <string>
+#include "Node.h"
 
-class Queue{
+class QueueLL{
 private:
-    int *list;
-    int capacity;
-    int front; 
-    int back;
+    Node *head;
+    Node *tail;
+    int len;
 public: 
-    Queue();
+    QueueLL();
+    ~QueueLL();
     void enqueue(int data);
     int dequeue();
     bool is_empty();
     int &operator[] (int index);
-    std::string getFullString();
     std::string getDebugString();
     int length();
 };

@@ -1,14 +1,14 @@
 #include <iostream>
-#include "Queue.h"
+#include "QueueA.h"
 
-Queue::Queue() {
+QueueA::QueueA() {
     capacity = 10;
     front = -1;
     back = -1;
     list = new int[capacity];
 }
 
-void Queue::enqueue(int data) {
+void QueueA::enqueue(int data) {
     if (front = -1 && back == -1) {
         front = 0;
     }
@@ -37,7 +37,7 @@ void Queue::enqueue(int data) {
     }
 }
 
-int Queue::dequeue() {
+int QueueA::dequeue() {
     if (front == -1 && back == -1) {
         throw std::out_of_range("EMPTY QUEUE: Nothing to dequeue");
     }
@@ -54,11 +54,11 @@ int Queue::dequeue() {
     return d; 
 }
 
-bool Queue::is_empty() {
+bool QueueA::is_empty() {
     return front == -1 && back == -1;
 }
 
-int &Queue::operator[] (int index){
+int &QueueA::operator[] (int index){
     if (front == -1 && back == -1) {
         throw std::out_of_range("EMPTY QUEUE: Can not access element");
     }
@@ -68,7 +68,7 @@ int &Queue::operator[] (int index){
     return list[index + front];
 }
 
-std::string Queue::getFullString(){
+std::string QueueA::getFullString(){
     std::string result = "";
     for (int i = 0; i < capacity; i++){
         result = result + std::to_string(list[i]) + "-->";
@@ -77,7 +77,7 @@ std::string Queue::getFullString(){
     return result;
 }
 
-std::string Queue::getDebugString(){
+std::string QueueA::getDebugString(){
     std::string result = "";//"front: " + std::to_string(front) + "\nback: " + std::to_string(back) + "\n";
     for (int i = front; i < back + 1; i++){
         result = result + std::to_string(list[i]) + "-->";
@@ -86,7 +86,7 @@ std::string Queue::getDebugString(){
     return result;
 }
 
-int Queue::length() {
+int QueueA::length() {
     return back - front + 1;
 }
 
