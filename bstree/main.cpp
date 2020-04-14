@@ -3,19 +3,52 @@
 #include "BSTree.h"
 int main()
 {
+  // VIDEO 2
+  Node *a = new Node(20);
+  Node *b = new Node(30);
+  Node *c = new Node(40);
+  Node *d = new Node(50);
+  Node *e = new Node(60);
+  Node *f = new Node(70);
+  Node *g = new Node(80);
+  Node *h = new Node(90);
+  Node *i = new Node(100);
+  a->setLeft(b);
+  a->setRight(c);
+  b->setLeft(d);
+  c->setLeft(e);
+  c->setRight(f);
+  e->setLeft(g);
+  e->setRight(h);
+  h->setRight(i);
 
-  Node *n = new Node(20);
-  std::cout << n->getData() << "\n";
-  Node *n2 = new Node(30);
-  n->setLeft(n2);
-  n2 = new Node(40);
-  n->setRight(n2);
+  /*
+  std::cout << a->getData() << "\n";
+  std::cout << "\t" << a->getLeft()->getData() << "\t" << a->getRight()->getData() << "\n" << std::endl;
+  
+  std::cout << "\t" << b->getData() << "\n";
+  std::cout << "\t" << b->getLeft()->getData() << "\n" << std::endl;
+  
+  std::cout << "\t" << c->getData() << "\n";
+  std::cout << "\t" << c->getLeft()->getData() << "\t" << c->getRight()->getData() << "\n" << std::endl;
+  
+  std::cout << "\t\t" << e->getData() << "\n";
+  std::cout << "\t\t" << e->getLeft()->getData() << "\t" << e->getRight()->getData() << "\n" << std::endl;
+  
+  std::cout << "\t\t\t" << h->getData() << "\n";
+  std::cout << "\t\t\t" << h->getRight()->getData() << "\n";
+  */
 
-  std::cout << n->getLeft()->getData() << "\n";
-  std::cout << n->getRight()->getData() << "\n";
+  std::cout << a->getData() << std::endl;
+  std::cout << a->getLeft()->getData() << "\t" << a->getRight()->getData() << std::endl;
+  std::cout << a->getLeft()->getLeft()->getData() << "\t" << a->getRight()->getLeft()->getData() << "\t" << a->getRight()->getRight()->getData() << std::endl;
+  std::cout <<  "\t" << a->getRight()->getLeft()->getLeft()->getData() << "\t" << a->getRight()->getLeft()->getRight()->getData() << "\t" << std::endl;
+  std::cout <<  "\t" << a->getRight()->getLeft()->getRight()->getRight()->getData() << std::endl;
 
+  // VIDEO 5
   BSTree *t = new BSTree();
   t->setup();
-  std::cout << t->get_debug_string() << "\n";
+  std::cout << t->get_debug_string_r() << "\n";
+  
   return 0;
 }
