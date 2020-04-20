@@ -8,7 +8,32 @@ BSTree::BSTree(){
 }
 
 void BSTree::insert(int d){
-  
+    if (root==nullptr){
+        root = new Node(d);
+    } 
+    else {
+        insert(root, d);
+    }
+}
+
+void BSTree::insert(Node *n, int d) {
+    int val = n->getData();
+    if (d > val) {
+        if (n->getRight() != nullptr) {
+            insert(n->getRight(), d);
+        } 
+        else {
+            n->setRight(new Node(d));
+        }
+    } 
+    else {
+        if (n->getLeft() != nullptr) {
+            insert(n->getLeft(), d);
+        } 
+        else {
+            n->setLeft(new Node(d));
+        }
+    }
 }
 
 std::string BSTree::get_debug_string(){

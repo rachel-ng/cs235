@@ -10,6 +10,7 @@ class BSTree{
  public:
   BSTree ();
   void insert (int d);
+  void insert(Node *n, int d);
   std::string get_debug_string ();
   std::string get_debug_string_r ();
   void setup ();
