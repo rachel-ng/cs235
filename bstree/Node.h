@@ -16,5 +16,5 @@ class Node {
   void setData(int d);
   void setLeft(Node *l);
   void setRight(Node *r);
-
+  void setChildren(Node *l, Node *r);
 };

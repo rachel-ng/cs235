@@ -40,5 +40,10 @@ void Node::setLeft(Node *l){
 
 void Node::setRight(Node *r){
   right = r;
-  
 }
+
+void Node::setChildren(Node *l, Node *r){
+  left = l;
+  right = r;
+}
+

@@ -55,11 +55,18 @@ int main()
   delete t;
 
   t = new BSTree();
-  int arr[11] = {10, 20, 30, 5, 17, 22, 35, 40, 8, 3, 9};
+  int arr[11] = {10, 20, 27, 5, 4, 22, 35, 42, 8, 3, 7};
   for (int i = 0; i < 11; i++) {
     t->insert(arr[i]);
   }
-  std::cout << t->get_debug_string_r() << std::endl;
+  
+  std::cout << t->get_debug_string_r() << "\n" << std::endl;
+ 
+  int awo[7] = {3,5,8,27,42,42,-7};
+  for (int i = 0; i < 7; i++) {
+      t->remove(awo[i]);
+      std::cout << "removing: " << awo[i] << "\n" << t->get_debug_string_r() << "\n" << std::endl;
+  }
 
   return 0;
 }
