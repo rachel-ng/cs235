@@ -82,13 +82,12 @@ void BSTree::remove (int d) {
         return;
     }
 
-    bool left = p->getData() > d ? true : false;
-    int children = n->getRight() != nullptr ? (n->getLeft() != nullptr ? 2 : 1) : (n->getLeft() != nullptr ? 1 : 0);
-    Node *c = (children == 0) ? nullptr : ((n->getRight() != nullptr) ? n->getRight() : n->getLeft());
+    Node *l = n->getLeft();
+    Node *r = n->getRight();
+    int children = r != nullptr ? (l != nullptr ? 2 : 1) : (l != nullptr ? 1 : 0);
+    Node *c = (children == 0) ? nullptr : ((r != nullptr) ? r : l);
     
     if (children == 2) {
-        Node *l = n->getLeft();
-        Node *r = n->getRight();
         n->setChildren(nullptr, nullptr);
         Node *m = minp(r);
         c = m->getLeft() != nullptr ? m->getLeft() : m;
@@ -97,7 +96,7 @@ void BSTree::remove (int d) {
         c->setChildren(l,r);
     }
     
-    if (left) {
+    if (p->getData() > d) {
         p->setLeft(c);
     }
     else {
