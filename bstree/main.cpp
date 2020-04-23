@@ -62,8 +62,8 @@ int main()
   
   std::cout << t->get_debug_string_r() << "\n" << std::endl;
  
-  int awo[7] = {3,5,8,27,42,42,-7};
-  for (int i = 0; i < 7; i++) {
+  int awo[12] = {3,5,8,27,42,10,7,666,20,4,35,22};
+  for (int i = 0; i < 12; i++) {
       t->remove(awo[i]);
       std::cout << "removing: " << awo[i] << "\n" << t->get_debug_string_r() << "\n" << std::endl;
   }

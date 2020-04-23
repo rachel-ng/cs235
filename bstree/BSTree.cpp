@@ -55,6 +55,24 @@ void BSTree::remove (int d) {
     Node *p = root;
     Node *n = root;
     
+    if (root->getData() == d) {
+        if (childless(root)) {
+            root = nullptr;
+            return;
+        }
+
+        Node *l = n->getLeft();
+        Node *r = n->getRight();
+        n->setChildren(nullptr, nullptr);
+        Node *m = minp(r);
+        Node *c = m->getLeft() != nullptr ? m->getLeft() : m;
+        r = r == c ? r->getRight() : r;
+        m->setLeft(nullptr);
+        c->setChildren(l,r);
+        root = c;
+        return;
+    }
+
     while (n != nullptr && !childless(n) && n->getData() != d) {
         p = n;
         n = (n->getData() > d) ? n->getLeft() : n->getRight();
@@ -66,49 +84,26 @@ void BSTree::remove (int d) {
 
     bool left = p->getData() > d ? true : false;
     int children = n->getRight() != nullptr ? (n->getLeft() != nullptr ? 2 : 1) : (n->getLeft() != nullptr ? 1 : 0);
+    Node *c = (children == 0) ? nullptr : ((n->getRight() != nullptr) ? n->getRight() : n->getLeft());
     
-    switch (children) {
-    case 0:
-    {
-        root = n == root ? nullptr : root;
-        if (left) {
-            p->setLeft(nullptr);
-        }
-        else {
-            p->setRight(nullptr);
-        }
-        break;
-    }
-    case 1: 
-    {    
-        Node *c = n->getRight() != nullptr ? n->getRight() : n->getLeft();
-        if (left) {
-            p->setLeft(c);
-        }
-        else {
-            p->setRight(c);
-        }
-        break;
-    }
-    case 2:
-    {
+    if (children == 2) {
         Node *l = n->getLeft();
         Node *r = n->getRight();
         n->setChildren(nullptr, nullptr);
         Node *m = minp(r);
-        Node *c = m->getLeft() != nullptr ? m->getLeft() : m;
+        c = m->getLeft() != nullptr ? m->getLeft() : m;
         r = r == c ? r->getRight() : r;
         m->setLeft(nullptr);
         c->setChildren(l,r);
-        if (left) {
-            p->setLeft(c);
-        }
-        else {
-            p->setRight(c);
-        }
-        break;      
     }
+    
+    if (left) {
+        p->setLeft(c);
     }
+    else {
+        p->setRight(c);
+    }
+
     delete n;
     return;
 }
@@ -125,10 +120,10 @@ void BSTree::setup () {
 }
 
 std::string BSTree::get_debug_string () {
-
   if (root == nullptr){
     return "";
-  } else {
+  }
+  else {
     return  std::to_string( root->getData()) + std::to_string(root->getRight()->getData());
   }
 }
