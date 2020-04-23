@@ -55,12 +55,12 @@ void BSTree::remove (int d) {
     Node *p = root;
     Node *n = root;
     
+    if (root == nullptr || childless(root)) {
+        root = nullptr;
+        return;
+    }
+    
     if (root->getData() == d) {
-        if (childless(root)) {
-            root = nullptr;
-            return;
-        }
-
         Node *l = n->getLeft();
         Node *r = n->getRight();
         n->setChildren(nullptr, nullptr);
