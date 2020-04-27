@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Node.h"
 #include "BSTree.h"
+#include "Challenges.h"
 int main()
 {
   // VIDEO 2
@@ -45,6 +46,8 @@ int main()
   std::cout <<  "\t" << a->getRight()->getLeft()->getLeft()->getData() << "\t" << a->getRight()->getLeft()->getRight()->getData() << "\t" << std::endl;
   std::cout <<  "\t" << a->getRight()->getLeft()->getRight()->getRight()->getData() << std::endl;
 
+  std::cout << num_nodes(a) << std::endl;
+  
   // VIDEO 5
   BSTree *t = new BSTree();
   t->setup();
