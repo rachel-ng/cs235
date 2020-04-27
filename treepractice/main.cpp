@@ -77,13 +77,13 @@ int main()
   }
   
   std::cout << r->get_debug_string_r() << "\n" << std::endl;
-  std::cout << r->countNodes() << "\t" << r->sumNodes() << "\t" << r->countLeaves() << "\t" << r->height() << std::endl;
+  std::cout << r->countNodes() << "\t" << r->sumNodes() << "\t" << r->countLeaves() << "\t" << r->height() << "\t" << r->sumLevel(1) << std::endl;
   
   int awoo[4] = {20, 30, 50, 80};
   for (int i = 0; i < 4; i++) {
       r->remove(awoo[i]);
       std::cout << r->get_debug_string_r() << "\n" << std::endl;
-      std::cout << r->countNodes() << "\t" << r->sumNodes() << "\t" << r->countLeaves() << "\t" << r->height() << std::endl;
+      std::cout << r->countNodes() << "\t" << r->sumNodes() << "\t" << r->countLeaves() << "\t" << r->height() << "\t" << r->sumLevel(r->height() - 1) << std::endl;
   }
   return 0;
 }

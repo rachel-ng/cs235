@@ -204,12 +204,24 @@ int BSTree::tall (Node* n) {
     if (n == nullptr) {
         return 0;
     }
-    if (n->getLeft() == nullptr && n->getRight() == nullptr) {
-        return 1;
-    }
     int l = tall(n->getLeft());
     int r = tall(n->getRight());
     return 1 + (l > r ? l : r);
 }
 
+
+// CHALLENGE 5: SUM AT LEVEL 
+int BSTree::sumLevel (int height){
+    return sumLvl(root, height);
+}
+
+int BSTree::sumLvl (Node* n, int height){
+    if (n == nullptr) {
+        return 0;
+    }
+    if (height == 0) {
+        return n->getData();
+    }
+    return sumLvl(n->getLeft(), height - 1) + sumLvl(n->getRight(), height - 1);
+}
 
