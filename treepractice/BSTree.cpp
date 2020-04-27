@@ -179,3 +179,19 @@ int BSTree::snodes (Node* n) {
 }
 
 
+// CHALLENGE 3: COUNT LEAVES
+int BSTree::countLeaves (){
+    return leaves (root);
+}
+
+int BSTree::leaves (Node* n) {
+    if (n == nullptr) {
+        return 0;
+    }
+    if (n->getLeft() == nullptr && n->getRight() == nullptr) {
+        return 1;
+    }
+    return 0 + leaves(n->getLeft()) + leaves(n->getRight());;
+}
+
+

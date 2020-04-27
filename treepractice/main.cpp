@@ -76,17 +76,16 @@ int main()
   }
 
   std::cout << r->get_debug_string_r() << "\n" << std::endl;
-  std::cout << r->countNodes() << std::endl;
+  std::cout << r->countNodes() << "\t" << r->sumNodes() << "\t" << r->countLeaves() << std::endl;
   r->remove(20);
   std::cout << r->get_debug_string_r() << "\n" << std::endl;
-  std::cout << r->countNodes() << std::endl;
+  std::cout << r->countNodes() << "\t" << r->sumNodes() << "\t" << r->countLeaves() << std::endl;
   r->remove(30);
   std::cout << r->get_debug_string_r() << "\n" << std::endl;
-  std::cout << r->countNodes() << std::endl;
+  std::cout << r->countNodes() << "\t" << r->sumNodes() << "\t" << r->countLeaves() << std::endl;
   r->remove(50);
   std::cout << r->get_debug_string_r() << "\n" << std::endl;
-  std::cout << r->countNodes() << std::endl;
-  std::cout << r->sumNodes() << std::endl;
+  std::cout << r->countNodes() << "\t" << r->sumNodes() << "\t" << r->countLeaves() << std::endl;
 
   return 0;
 }
