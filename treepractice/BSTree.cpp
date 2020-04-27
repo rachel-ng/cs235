@@ -153,8 +153,7 @@ std::string BSTree::debug_string_r (Node *n, int l) {
 }
 
 
-
-
+// CHALLENGE 1: COUNT NODES
 int BSTree::countNodes (){
     return nnodes (root);
 }
@@ -165,3 +164,18 @@ int BSTree::nnodes (Node* n) {
     }
     return 1 + nnodes(n->getLeft()) + nnodes(n->getRight());
 }
+
+
+// CHALLENGE 2: SUM NODES
+int BSTree::sumNodes (){
+    return snodes (root);
+}
+
+int BSTree::snodes (Node* n) {
+    if (n == nullptr) {
+        return 0;
+    }
+    return n->getData() + snodes(n->getLeft()) + snodes(n->getRight());
+}
+
+

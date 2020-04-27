@@ -86,6 +86,7 @@ int main()
   r->remove(50);
   std::cout << r->get_debug_string_r() << "\n" << std::endl;
   std::cout << r->countNodes() << std::endl;
+  std::cout << r->sumNodes() << std::endl;
 
   return 0;
 }

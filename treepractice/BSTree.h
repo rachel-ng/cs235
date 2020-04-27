@@ -18,6 +18,8 @@ class BSTree{
   void setup ();
   int countNodes ();
   int nnodes (Node* n);
+  int sumNodes ();
+  int snodes (Node* n);
 };
 
 bool childless (Node *n);
