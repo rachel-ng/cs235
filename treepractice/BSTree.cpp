@@ -152,3 +152,16 @@ std::string BSTree::debug_string_r (Node *n, int l) {
     return s; 
 }
 
+
+
+
+int BSTree::countNodes (){
+    return nnodes (root);
+}
+
+int BSTree::nnodes (Node* n) {
+    if (n == nullptr) {
+        return 0;
+    }
+    return 1 + nnodes(n->getLeft()) + nnodes(n->getRight());
+}

@@ -16,6 +16,9 @@ class BSTree{
   std::string get_debug_string ();
   std::string get_debug_string_r ();
   void setup ();
+  int countNodes ();
+  int nnodes (Node* n);
 };
 
 bool childless (Node *n);
+
