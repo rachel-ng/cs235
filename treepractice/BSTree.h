@@ -22,6 +22,8 @@ class BSTree{
   int snodes (Node* n);
   int countLeaves ();
   int leaves (Node* n);
+  int height ();
+  int tall (Node* n);
 };
 
 bool childless (Node *n);

@@ -67,6 +67,7 @@ int main()
   for (int i = 0; i < 13; i++) {
       t->remove(awo[i]);
       std::cout << "removing: " << awo[i] << "\n" << t->get_debug_string_r() << "\n" << std::endl;
+      std::cout << t->countNodes() << "\t" << t->sumNodes() << "\t" << t->countLeaves() << "\t" << t->height() << std::endl;
   }
 
   BSTree* r = new BSTree();
@@ -74,18 +75,15 @@ int main()
   for (int i = 0; i < 7; i++) {
     r->insert(arry[i]);
   }
-
+  
   std::cout << r->get_debug_string_r() << "\n" << std::endl;
-  std::cout << r->countNodes() << "\t" << r->sumNodes() << "\t" << r->countLeaves() << std::endl;
-  r->remove(20);
-  std::cout << r->get_debug_string_r() << "\n" << std::endl;
-  std::cout << r->countNodes() << "\t" << r->sumNodes() << "\t" << r->countLeaves() << std::endl;
-  r->remove(30);
-  std::cout << r->get_debug_string_r() << "\n" << std::endl;
-  std::cout << r->countNodes() << "\t" << r->sumNodes() << "\t" << r->countLeaves() << std::endl;
-  r->remove(50);
-  std::cout << r->get_debug_string_r() << "\n" << std::endl;
-  std::cout << r->countNodes() << "\t" << r->sumNodes() << "\t" << r->countLeaves() << std::endl;
-
+  std::cout << r->countNodes() << "\t" << r->sumNodes() << "\t" << r->countLeaves() << "\t" << r->height() << std::endl;
+  
+  int awoo[4] = {20, 30, 50, 80};
+  for (int i = 0; i < 4; i++) {
+      r->remove(awoo[i]);
+      std::cout << r->get_debug_string_r() << "\n" << std::endl;
+      std::cout << r->countNodes() << "\t" << r->sumNodes() << "\t" << r->countLeaves() << "\t" << r->height() << std::endl;
+  }
   return 0;
 }
