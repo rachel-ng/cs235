@@ -55,6 +55,8 @@ int removemin (int arry[], int size) {
 }
 
 void heapsort (int arry[], int size) {
+    heapify(arry, size);
+
     for (int i = 1; i < size; i++) {
         siftup(arry, i, size);
     }
