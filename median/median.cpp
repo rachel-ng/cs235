@@ -58,13 +58,8 @@ double median (double arry[], int size) {
             maxheapsort(max,maxs);
             median = (min[0]+max[0])/2;
         }
-        std::cout << n << std::endl;
-        prnt(min,mins);
-        prnt(max,maxs);
-        std::cout << median << "\n" << std::endl;
     }
 
-    
     return median;
 }
 
