@@ -1,6 +1,6 @@
 OBJECTS=main.o BSTree.o Node.o
 LDFLAGS=
-CXXFLAGS=
+CXXFLAGS= -std=c++17
 
 main: $(OBJECTS)
 	g++ -o main $(OBJECTS)

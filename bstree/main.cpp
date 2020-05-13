@@ -68,5 +68,19 @@ int main()
       std::cout << "removing: " << awo[i] << "\n" << t->get_debug_string_r() << "\n" << std::endl;
   }
 
+  BSTree* r = new BSTree();
+  int arry[7] = {50,30,70,40,20,60,80};
+  for (int i = 0; i < 7; i++) {
+    r->insert(arry[i]);
+  }
+
+  std::cout << r->get_debug_string_r() << "\n" << std::endl;
+  r->remove(20);
+  std::cout << r->get_debug_string_r() << "\n" << std::endl;
+  r->remove(30);
+  std::cout << r->get_debug_string_r() << "\n" << std::endl;
+  r->remove(50);
+  std::cout << r->get_debug_string_r() << "\n" << std::endl;
+
   return 0;
 }
